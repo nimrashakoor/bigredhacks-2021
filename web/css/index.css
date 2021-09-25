@@ -6,6 +6,21 @@ a {
   color: inherit;
   text-decoration: none;
 } 
+progress{
+  width: 350px;
+  height: 40px;
+  border:none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: rgb(255, 255, 255);
+  border-radius: 14px;
+}
+progress::-webkit-progress-value {
+  background-color: rgb(247, 218, 52);
+  border-radius: 14px;
+}
+
 .normal_b{
   font-size:18px;
   font-family:Georgia, 'Times New Roman', Times, serif;
@@ -59,14 +74,16 @@ input{
   border-radius: 20px;
   text-decoration: none;
   background-color: #344e5f;
-  opacity:0.8;
-  transition:0.3s;
   border: none;
   text-align: center;
   margin:20px;
   padding:14px;
 }
-#login_b:hover{
+button{
+  opacity:0.8;
+  transition:0.3s;
+}
+button:hover{
   opacity:1;
   background-color: #cc6d94;
   box-shadow: 0 12px 16px 0 rgba(172, 145, 151, 0.24), 0 17px 30px 0 rgba(0,0,0,0.19);
@@ -149,7 +166,7 @@ h1{
 
 /* map and data block */
 #data_div{
-  background-color: #80ce6c;
+  background-color: #81a079;
 }
 
 #left_b_div{
@@ -176,6 +193,23 @@ h1{
   line-height:20%;
 }
 
+#numbers{
+  display: flex;
+  margin-left:36px;
+
+}
+
+.vert_bar{
+  margin-left:20px;
+  margin-top:-200px;
+  width:400px;
+  flex: 1;
+  float: left;
+  background-color: #eba8b9;
+  padding:20px;
+  border-radius: 20px;
+}
+
 .scroll_wrapper {
   width: 800px;
   height: 340px;
@@ -193,6 +227,7 @@ h1{
   opacity: 1;
   filter: saturate(1.5);
 }
+
 #avatar_div{
     position: absolute;
     top: 0;
@@ -207,7 +242,26 @@ h1{
   right: 40%;
 }
 
-#map_title{
+#map_panel{
+  display:inline-flex;
+  z-index:6;
+  position: absolute;
+  height:100px;
+  right:-70px;
+  top:130px;
+}
+
+#go_b{
+  font-size:30px;
+}
+
+#go_title{
+  font-size: 22px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color:white;
+}
+
+.title{
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-size:60px;
   color:white;
@@ -215,6 +269,38 @@ h1{
   text-align: center;
   top:0%;
 }
+
+.sec{
+  font-size:40px;
+}
+
+#goals_grid{
+  margin: 20px auto;
+  width:400px;
+  height:160px;
+  display:grid;
+  grid-template-columns: 200px 200px;
+  grid-row: auto auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.grid_b{
+  width:185px;
+  height:90px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+    border-radius:10px;
+    border:none;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+}
+.grid_b:hover{
+
+}
+
 
 
 #fit_chart{

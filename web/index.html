@@ -51,14 +51,19 @@
         <div id="left_b_div">
           <button class="switch_b" id="left_b" onclick="replace(2)"><i class="fa fa-chevron-left"></i></button>
         </div>
-        <div id="right_b_div">
+        <div id="right_b_div" class="data_block">
           <button class="switch_b" id="right_b" onclick="replace(1)"><i class="fa fa-chevron-right"></i></button>
         </div>
-        <div id="map" style="display:block">
+        <div id="map" class="data_block" style="display:block">
           <div>
-            <h3 id="map_title">Adventure Map</h3>
+            <h3 class="title"><br>Adventure Map</h3>
           </div>
           <div class="scroll_wrapper">
+            <div id="map_panel">
+              <!-- Inset steps remaining (calculated from points)-->
+              <p id="go_title">Steps remaining:<span></span></p>
+              <button id="go_b" class="normal_b">Go</button>
+            </div>
             <div class="scene" style="display:inline-flex">
               <img class="scene_img" src="images/stage1.png" width="800px" height="410px">
               <div id="avatar_div">
@@ -82,10 +87,41 @@
             </div>
           </div>
         </div>
-        <div id="numbers" style="display:none">
-          <!-- Receiving data from the database? -->
-          <h3>You are currently in the <span id="league_name"></span> league</h3>
-          <!-- Data visualization from points -->
+        <div id="numbers" class="data_block" style="display:none">
+          <div class="vert_bar">
+            <div>
+              <h2 class="title">League: <span id="league_name"></span></h2>
+            </div>
+            <!-- Receiving data from the database? -->
+            <!-- Data visualization from points -->
+            <div>
+              <progress id="league_bar" value="32" max="100"></progress>
+            </div>
+            <br>
+            <div>
+              <p>More information about this league?</p>
+            </div>
+          </div>
+          <div class="vert_bar">
+            <h3 class="title sec">Date: <span id="league_name">
+                <script> document.write(new Date().toLocaleDateString());</script>
+              </span></h3>
+            <h3 class="title sec">Goals Accomplished:</h3>
+            <div id="goals_grid">
+              <div>
+                <button class="grid_b" id="grid_fit_b">Fitness</button>
+              </div>
+              <div>
+                <button class="grid_b" id="grid_screen_b">ScreenTime</button>
+              </div>
+              <div>
+                <button class="grid_b" id="grid_hyd_b">Hydration</button>
+              </div>
+              <div>
+                <button class="grid_b" id="grid_med_b">Medication</button>
+              </div>
+            </div>
+          </div>
 
         </div>
         <div id="notifications" style="display:none">
@@ -149,6 +185,7 @@
         </div>
       </div>
       <canvas id="fit_chart" style="width:100%;height:100%; max-width:500px;max-height:350px"></canvas>
+      <!-- changing the array? -->
       <script>
         var xValues = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
         var yValues = [55, 49, 44, 24, 15, 20, 49];
