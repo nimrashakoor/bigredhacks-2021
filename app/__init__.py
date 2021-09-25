@@ -59,7 +59,7 @@ def create():
 
 @app.route("/group")
 def group():
-    if user == {}:
-        return redirect(url_for("login"))
+    # if user == {}:
+    # return redirect(url_for("login"))
 
-    return render_template("group.html", group=user["friends"])
+    return render_template("group.html")  # , group=user["friends"])

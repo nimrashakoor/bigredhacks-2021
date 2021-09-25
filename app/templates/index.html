@@ -6,12 +6,14 @@
     src: url("{{ url_for('static', filename='FontFile.otf') }}");
   }
 </style>
+
 <head>
-  <title>First Project</title>
+  <title>Friendwell Dashboard</title>
   <link rel="stylesheet" href="/static/styles/index.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css"> -->
+  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="/bower_components/bootstrap-horizon/bootstrap-horizon.css">
+-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 
@@ -38,7 +40,7 @@
         <button class="opt_b" id="med_b" onclick="viewele('med_div')">Medication</button>
       </div>
       <div>
-        <button class="opt_b" id="group_b">Groups</button>
+        <button class="opt_b" id="group_b"><a href="/group">Groups</a></button>
       </div>
       <script type="text/javascript">
         function viewele(name) {
