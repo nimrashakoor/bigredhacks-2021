@@ -49,10 +49,10 @@
     <div class="block" id="data_div">
       <div>
         <div id="left_b_div">
-          <button class="switch_b" id="left_b" onclick="replace(1)"><i class="fa fa-chevron-left"></i></button>
+          <button class="switch_b" id="left_b" onclick="replace(2)"><i class="fa fa-chevron-left"></i></button>
         </div>
         <div id="right_b_div">
-          <button class="switch_b" id="right_b" onclick="replace(2)"><i class="fa fa-chevron-right"></i></button>
+          <button class="switch_b" id="right_b" onclick="replace(1)"><i class="fa fa-chevron-right"></i></button>
         </div>
         <div id="map" style="display:block">
           <div class="scroll_wrapper">
@@ -68,7 +68,10 @@
           </div>
         </div>
         <div id="numbers" style="display:none">
-          <p>Hello this is the numbers</p>
+          <!-- Receiving data from the database? -->
+          <h3>You are currently in the <span id="league_name"></span> league</h3>
+          <!-- Data visualization from points -->
+
         </div>
         <div id="notifications" style="display:none">
           <p>Notifications</p>
