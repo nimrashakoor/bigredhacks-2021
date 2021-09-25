@@ -7,10 +7,10 @@ from flask import (
     redirect,
     url_for,
 )
-import database_functions
+from . import database_functions
 
 app = Flask(__name__)
-df = createSampleDataframe()
+df = database_functions.createSampleDataframe()
 user = {}
 
 

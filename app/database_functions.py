@@ -1,16 +1,17 @@
 import pandas as pd
 
 
-def creatEmptyDataframe():
+def createEmptyDataframe():
     """creates the empty dataframe"""
     df = pd.DataFrame({"Username": [], "Friends": [], "Points": []})
     return df
 
 
-def createSampleDataframe(df):
+def createSampleDataframe():
     """creates the sample dataframe
     :df: Pandas dataframe
     """
+    df = createEmptyDataframe()
     sample = {
         "Username": "Johnny",
         "Friends": ["Sarah", "Timmy", "Tobby"],

@@ -2,10 +2,10 @@ html{
   scroll-behavior: smooth;
   overflow:auto;
 }
-a { 
+a {
   color: inherit;
   text-decoration: none;
-} 
+}
 progress{
   width: 350px;
   height: 40px;
