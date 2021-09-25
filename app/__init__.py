@@ -22,7 +22,9 @@ def initialize_user(username):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    if user == {}:
+        return redirect(url_for("login"))
+    return render_template("index.html", points=user["points"])
 
 
 @app.route("/login")
@@ -31,10 +33,11 @@ def login():
         username = request.form.get("username")
 
         if not database_functions.checkUser(username, df):
-            return redirect(url_for("login"))
+            return redirect(url_for("create"))
 
         initialize_user(username)
 
+        return redirect(url_for("index"))
     return render_template("login.html")
 
 
