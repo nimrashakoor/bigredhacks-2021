@@ -104,9 +104,28 @@
         <div>
           <h2 id="fit_title">Fitness</h2>
         </div>
-        <div>
-          <h3>Your Condition: very good.</h3>
+        <div class="content">
+          <div>
+            <h3>Your Condition: very good.</h3>
+            <br>
+            <p class="advice">You are done with exercise for today!</p>
+          </div>
+          <br>
+          <br>
+          <div>
+            <p>Enter data for today: (type of data undecided)</p>
+            <input type="number" id="step_input" value="steps"></input>
+            <button class="normal_b" onclick="writeval()">submit</button>
+            <p>You just entered: <span id="step_entered"></span> steps</hp>
+              <script>
+                function writeval() {
+                  document.getElementById("step_entered").innerHTML = document.getElementById("step_input").value;
+                  document.getElementById("step_input").value = "";
+                }
+              </script>
+          </div>
         </div>
+
         <div>
 
         </div>
