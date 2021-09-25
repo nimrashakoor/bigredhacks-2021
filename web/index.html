@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>First Project</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/bower_components/bootstrap-horizon/bootstrap-horizon.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body>
+  <!-- Fixed Header Block -->
+  <div id="head_div">
+    <div id="head_container">
+      <h1 id="head">FRIENDWELL</h1>
+    </div>
+    <div id="options_div">
+      <div>
+        <button class="opt_b" id="data_b" onclick="viewele('data_div')">My Data</button>
+      </div>
+      <div>
+        <button class=" opt_b" id="fitness_b" onclick="viewele('fit_div')">Fitness</button>
+      </div>
+      <div>
+        <button class="opt_b" id="screen_b">Screen Time</button>
+      </div>
+      <div>
+        <button class="opt_b" id="med_b">Medication</button>
+      </div>
+      <div>
+        <button class="opt_b" id="hyd_b">Hydration</button>
+      </div>
+      <div>
+        <button class="opt_b" id="group_b">Groups</button>
+      </div>
+      <script type="text/javascript">
+        function viewele(name) {
+          var elmnt = document.getElementById(name);
+          elmnt.scrollIntoView({ behavior: 'smooth', block: "end" });
+        }
+      </script>
+    </div>
+  </div>
+
+  <!-- Data Display Block -->
+  <div class="items">
+    <div class="block" id="data_div">
+      <div>
+        <div id="left_b_div">
+          <button class="switch_b" id="left_b" onclick="replace(1)"><i class="fa fa-chevron-left"></i></button>
+        </div>
+        <div id="right_b_div">
+          <button class="switch_b" id="right_b" onclick="replace(2)"><i class="fa fa-chevron-right"></i></button>
+        </div>
+        <div id="map" style="display:block">
+          <div class="scroll_wrapper">
+            <div class="scene">
+              <img src="images/test1.png" width="850px" height="430px">
+            </div>
+            <div class="scene">
+              <img src="images/test2.png" width="850px" height="430px">
+            </div>
+            <div class="scene">
+              <img src="images/test3.png" width="850px" height="430px">
+            </div>
+          </div>
+        </div>
+        <div id="numbers" style="display:none">
+          <p>Hello this is the numbers</p>
+        </div>
+        <div id="notifications" style="display:none">
+          <p>Notifications</p>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function view(name) {
+        var elmnt = document.getElementById(name);
+        elmnt.scrollIntoView(true);
+      }
+      function replace(num) {
+        pages = ["map", "numbers", "notifications"];
+        colors = ["#80ce6c", "pink", "lightblue"]
+        if (document.getElementById("map").style.display == "block") {
+          current = 0;
+          document.getElementById("map").style.display = "none";
+        } else if (document.getElementById("numbers").style.display == "block") {
+          current = 1;
+          document.getElementById("numbers").style.display = "none";
+        } else {
+          current = 2;
+          document.getElementById("notifications").style.display = "none";
+        }
+        new_page = (current + num) % 3;
+
+        document.getElementById(pages[new_page]).style.display = "block";
+        document.getElementById("data_div").style.backgroundColor = colors[new_page];
+      }
+    </script>
+    <div class="block" id="fit_div">
+      <div class="block_txt" id="fit_txt">
+        <div>
+          <h2 id="fit_title">Fitness</h2>
+        </div>
+        <div>
+          <h3>Your Condition: very good.</h3>
+        </div>
+        <div>
+
+        </div>
+      </div>
+      <canvas id="fit_chart" style="width:100%;height:100%; max-width:500px;max-height:350px"></canvas>
+      <script>
+        var xValues = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+        var yValues = [55, 49, 44, 24, 15, 20, 49];
+        var barColors = ["blue"];
+
+        new Chart("fit_chart", {
+          type: "bar",
+          data: {
+            labels: xValues,
+            datasets: [{
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(255, 159, 64, 0.5)',
+                'rgba(255, 205, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(150, 150, 207, 0.5)'
+              ],
+              data: yValues
+            }]
+          },
+          options: {
+            legend: { display: false },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }],
+            }
+          }
+        });
+      </script>
+    </div>
+    <div class="block" id="screen_div">
+      <div>
+        <h2>Screen Time</h2>
+      </div>
+    </div>
+    <div class="block" id="hyd_div">
+      <div>
+        <h2>Hydration</h2>
+      </div>
+    </div>
+    <div class="block" id="med_div">
+      <div>
+        <h2>Medication</h2>
+      </div>
+    </div>
+  </div>
+  <!-- Fixed Header Block -->
+
+
+</body>
+
+</html>
