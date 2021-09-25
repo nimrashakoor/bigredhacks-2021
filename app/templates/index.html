@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
-
+<style>
+  @font-face {
+    font-family: "Brush Script MT";
+    src: url("{{ url_for('static', filename='FontFile.otf') }}");
+  }
+</style>
 <head>
   <title>First Project</title>
   <link rel="stylesheet" href="/static/styles/index.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="/bower_components/bootstrap-horizon/bootstrap-horizon.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
@@ -80,7 +85,7 @@
               <img class="scene_img" src="static/img/stage3.jpg" width="800px" height="410px">
             </div>
             <div class="scene" style="display:none">
-              <img src="static/img/stage4.png" width="800px" height="410px">
+              <img class="scene_img" src="static/img/stage4.jpg" width="800px" height="410px">
             </div>
             <div class="scene">
               <img class="scene_img" src="static/img/end.png" width="200px" height="410">
