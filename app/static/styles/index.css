@@ -349,3 +349,16 @@ h3{
 #med_div{
   background-color: #e6d576;
 }
+
+
+/* Chat */
+.sidebar{
+  background-color: #b4cedf;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_item{
+  padding:20px;
+  background-color: #8ad8f0;
+}
