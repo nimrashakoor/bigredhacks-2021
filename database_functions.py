@@ -83,3 +83,14 @@ def addFriend(username, friend, df):
       idx = df.index[df["Username"] == username][0]
       df.iat[idx,1].append(friend)
       return df
+
+
+def checkUser(username, df):
+  """ checks if a username is in the dataframe 
+  :username: string of the username to be checked
+  :df: Pandas dataframe
+  """
+  if len(df[df["Username"] == username].isin([username])) == 1:
+    return True
+  else:
+    return False
