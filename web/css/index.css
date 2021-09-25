@@ -35,15 +35,6 @@ progress::-webkit-progress-value {
   margin:20px;
   padding:10px;
 }
-.normal_b:hover{
-  opacity:1;
-  background-color: #cc6d94;
-  box-shadow: 0 12px 16px 0 rgba(172, 145, 151, 0.24), 0 17px 30px 0 rgba(0,0,0,0.19);
-}
-/*login*/
-#login_title{
-  background: #d7ece4;
-}
 
 #login_box{
   background-color: #e6d576;
@@ -56,9 +47,9 @@ progress::-webkit-progress-value {
 }
 .login_input{
   margin:auto;
-  width: 18%;
-  background-color: #b2d0e2;
-  border-color:#c983a0;
+  width: 40%;
+  text-align:center;
+  background: #d7ece4;
   padding:30px;
   border-radius: 15px;
 }
@@ -73,19 +64,20 @@ input{
   color:white;
   border-radius: 20px;
   text-decoration: none;
-  background-color: #344e5f;
+  background: #6398bb;
   border: none;
   text-align: center;
   margin:20px;
   padding:14px;
 }
+
 button{
   opacity:0.8;
   transition:0.3s;
 }
 button:hover{
   opacity:1;
-  background-color: #cc6d94;
+  background: #cc6d94;
   box-shadow: 0 12px 16px 0 rgba(172, 145, 151, 0.24), 0 17px 30px 0 rgba(0,0,0,0.19);
 }
 
