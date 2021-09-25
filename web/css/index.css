@@ -170,9 +170,10 @@ h1{
 
 #map{
   position:relative;
-  margin-top: -20%;
-  margin-left:10%;
-  padding:30px;
+  margin-top: -30%;
+  margin-left:12%;
+  padding:10px;
+  line-height:20%;
 }
 
 .scroll_wrapper {
@@ -204,6 +205,15 @@ h1{
   position: relative;
   bottom: -70px;
   right: 40%;
+}
+
+#map_title{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size:60px;
+  color:white;
+  position: relative;
+  text-align: center;
+  top:0%;
 }
 
 
