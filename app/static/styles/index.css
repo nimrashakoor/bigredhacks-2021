@@ -112,9 +112,21 @@ h1{
 #data_b{
   background-color:#60a9da;
 }
+#fitness_b{
+  background-color:#9871ca;
+}
+#screen_b{
+  background-color:#eed963;
+}
+#hyd_b{
+  background-color:#60a9da;
+}
+#med_b{
+  background-color:#59b956;
+}
 
 #group_b{
-  background-color:#e7ee85;
+  background-color:#e2794f;
 }
 
 .opt_b{
@@ -338,9 +350,9 @@ h3{
 }
 
 #hyd_div{
-  background-color: #ffc857;
+  background-color: #82bed6;
 }
 
 #med_div{
-  background-color: #92b5ab;
+  background-color: #72b394;
 }
