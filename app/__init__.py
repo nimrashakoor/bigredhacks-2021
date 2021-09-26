@@ -16,24 +16,34 @@ user = {}
 
 def initialize_user(username):
     user["username"] = username
-    user["points"] = getUserPoints(username, df)
-    user["friends"] = getFriends(username, df)
+    user["points"] = database_functions.getUserPoints(username, df)
+    user["friends"] = database_functions.getUserFriends(username, df)
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
     if user == {}:
         return redirect(url_for("login"))
-    return render_template("index.html", points=user["points"])
+    if request.method == "POST":
+        add = request.form.get("step_input")
+        user["points"] += int(add)
+
+    t1 = user["points"] // 100
+    t2 = user["points"] % 100
+
+    path = []  # of length 10
+    return render_template(
+        "index.html", points=user["points"], coords=(t1, path[t2 // 10])
+    )
 
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         username = request.form.get("username")
 
-        if not database_functions.checkUser(username, df):
-            return redirect(url_for("create"))
+        # if not database_functions.checkUser(username, df):
+        #     return redirect(url_for("create"))
 
         initialize_user(username)
 
@@ -41,7 +51,7 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/create")
+@app.route("/create", methods=["GET", "POST"])
 def create():
     if request.method == "POST":
         username = request.form.get("username")

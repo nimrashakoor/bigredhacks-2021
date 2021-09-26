@@ -21,7 +21,7 @@
   <!-- Fixed Header Block -->
   <div id="head_div">
     <div id="head_container">
-      <h1 id="head">FRIENDWELL</h1>
+      <h1 id="head">FRIENDWELL {{points}}</h1>
     </div>
     <div id="options_div">
       <div>
@@ -174,9 +174,13 @@
           <br>
           <br>
           <div>
-            <p>Enter data for today: (type of data undecided)</p>
-            <input type="number" id="step_input" value="steps"></input>
-            <button class="normal_b" onclick="writeval()">submit</button>
+
+
+          <form action="" method="POST">
+            <p>Enter data for today: </p>
+            <input type="number" id="step_input" name="step_input" value="{{
+                request.form.step_input }}">
+            <input type="submit" value="submit">
             <p>You just entered: <span id="step_entered"></span> steps</hp>
               <script>
                 function writeval() {
@@ -184,6 +188,9 @@
                   document.getElementById("step_input").value = "";
                 }
               </script>
+          </form>
+
+
           </div>
         </div>
 

@@ -12,24 +12,25 @@
 </head>
 
 <body>
+<form action="" method="POST">
   <div class=login_input>
     <div id="login_title">
       <h1>FRIENDWELL</h1>
     </div>
     <div>
       <h2 class="login_item">Username</h2>
-      <input type="text" id="username"></input>
+      <input type="text" id="username" name="username" value="{{
+          request.form.username }}">
     </div>
     <div>
       <h2 class="login_item">Password</h2>
-      <input type="password" id="password"></input>
+      <input type="password" id="password" name="password"></input>
     </div>
     <div>
-      <button id="login_b">Sign In</button>
+      <input type="submit" value="submit">
     </div>
   </div>
-
-
+</form>
 </body>
 
 </html>
