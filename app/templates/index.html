@@ -123,12 +123,12 @@
         <div id="numbers" class="data_block" style="display:none">
           <div class="vert_bar">
             <div>
-              <h2 class="title">League: <span id="league_name"></span></h2>
+              <h2 class="title">League: {{league}}</h2>
             </div>
             <!-- Receiving data from the database? -->
             <!-- Data visualization from points -->
             <div>
-              <progress id="league_bar" value="32" max="100"></progress>
+              <progress id="league_bar" value={{prog}} max="100"></progress>
             </div>
             <br>
             <div>
@@ -158,7 +158,7 @@
 
         </div>
         <div id="notifications" style="display:none">
-          <p>Notifications</p>
+          <h2>Notifications</h2>
         </div>
       </div>
     </div>

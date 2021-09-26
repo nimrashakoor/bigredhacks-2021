@@ -28,12 +28,13 @@ def index():
         add = request.form.get("step_input")
         user["points"] += int(add)
 
-    t1 = user["points"] // 100
-    t2 = user["points"] % 100
+    arr = ["Bronze", "Silver", "Gold", "Diamond", "Emerald"]
+    t1 = int(user["points"] / 100)
+    t2 = int(user["points"] % 100)
 
     path = [180, 150, 120, 100, 80, 50, 20, 0, 200, -50]  # of length 10
     coords = {'mapid': t1, 'indexid': path[int(t2 / 10)]}
-    return render_template("index.html", points=user["points"], coords=coords)
+    return render_template("index.html", points=user["points"], league=arr[t1], prog=t2, coords=coords)
 
 
 @app.route("/login", methods=["GET", "POST"])
