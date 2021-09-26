@@ -7,6 +7,7 @@
   }
 </style>
 
+
 <head>
   <title>Friendwell Dashboard</title>
   <link rel="stylesheet" href="/static/styles/index.css" />
@@ -21,7 +22,7 @@
   <!-- Fixed Header Block -->
   <div id="head_div">
     <div id="head_container">
-      <h1 id="head">FRIENDWELL {{points}}</h1>
+      <h1 id="head">FRIENDWELL</h1>
     </div>
     <div id="options_div">
       <div>
@@ -53,6 +54,18 @@
 
   <!-- Data Display Block -->
   <div class="items">
+    <h1 style="display:none" id="invisible">{{coords.indexid}}</h1>
+    <script type="text/javascript">
+      function getpx() {
+        return "50%";
+        var a = getElementById("invisible").textContent
+        print("a")
+        var b = int(a) + "%";
+        print("yey")
+        //return b;
+        //return '{{coords.indexid}}' + px;
+      }
+    </script>
     <div class="block" id="data_div">
       <div>
         <div id="left_b_div">
@@ -68,26 +81,39 @@
           <div class="scroll_wrapper">
             <div id="map_panel">
               <!-- Inset steps remaining (calculated from points)-->
-              <p id="go_title">Steps remaining:<span></span></p>
-              <button id="go_b" class="normal_b">Go</button>
+              <p id="go_title">Steps remaining:<span id="numstep"></span></p>
+              <button id="go_b" class="normal_b" onclick="go()">Go</button>
+              <script>
+                function go() {
+                  var textcont = document.getElementById(numstep).textContent;
+
+                }
+              </script>
             </div>
             <div class="scene" style="display:inline-flex">
               <img class="scene_img" src="static/img/stage1.jpg" width="800px" height="410px">
               <div id="avatar_div">
-                <img src="static/img/avatar.gif" width="140px" height="140px" id="avatar_pic">
+                <img src="static/img/avatar.gif" width="140px" height="140px" id="avatar_pic" ]>
+                <img src="static/img/avatar.gif" width="140px" height="140px" id="avatar_pic1" ]>
               </div>
             </div>
             <div class="scene" style="display:inline-flex">
               <img class="scene_img" src="static/img/stage2.jpg" width="800px" height="410px">
-              <div id="avatar_div">
+              <div id="avatar_div" style="display:none">
                 <img src="static/img/avatar.gif" width="140px" height="140px" id="avatar_pic">
               </div>
             </div>
             <div class="scene" style="display:none">
               <img class="scene_img" src="static/img/stage3.jpg" width="800px" height="410px">
+              <div id="avatar_div">
+                <img src="static/img/avatar.gif" width="140px" height="140px" id="avatar_pic">
+              </div>
             </div>
             <div class="scene" style="display:none">
               <img class="scene_img" src="static/img/stage4.jpg" width="800px" height="410px">
+              <div id="avatar_div">
+                <img src="static/img/avatar.gif" width="140px" height="140px" id="avatar_pic">
+              </div>
             </div>
             <div class="scene">
               <img class="scene_img" src="static/img/end.png" width="200px" height="410">
@@ -106,7 +132,7 @@
             </div>
             <br>
             <div>
-              <p>More information about this league?</p>
+              <p>$ {{points}} worth of donation has been made on your behalf</p>
             </div>
           </div>
           <div class="vert_bar">
@@ -174,21 +200,19 @@
           <br>
           <br>
           <div>
-
-
-          <form action="" method="POST">
-            <p>Enter data for today: </p>
-            <input type="number" id="step_input" name="step_input" value="{{
+            <form action="" method="POST">
+              <p>Enter data for today: </p>
+              <input type="number" id="step_input" name="step_input" value="{{
                 request.form.step_input }}">
-            <input type="submit" value="submit">
-            <p>You just entered: <span id="step_entered"></span> steps</hp>
-              <script>
-                function writeval() {
-                  document.getElementById("step_entered").innerHTML = document.getElementById("step_input").value;
-                  document.getElementById("step_input").value = "";
-                }
-              </script>
-          </form>
+              <input type="submit" value="submit">
+              <p>You just entered: <span id="step_entered"></span> steps</hp>
+                <script>
+                  function writeval() {
+                    document.getElementById("step_entered").innerHTML = document.getElementById("step_input").value;
+                    document.getElementById("step_input").value = "";
+                  }
+                </script>
+            </form>
 
 
           </div>
@@ -198,11 +222,11 @@
 
         </div>
       </div>
-      <canvas id="fit_chart" style="width:100%;height:100%; max-width:500px;max-height:350px"></canvas>
+      <canvas class="chart" id="fit_chart" style="width:100%;height:100%; max-width:500px;max-height:350px"></canvas>
       <!-- changing the array? -->
       <script>
         var xValues = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-        var yValues = [55, 49, 44, 24, 15, 20, 49];
+        var yValues = [35, 49, 74, 24, 35, 20, 49];
         var barColors = ["blue"];
 
         new Chart("fit_chart", {
@@ -236,20 +260,231 @@
       </script>
     </div>
     <div class="block" id="screen_div">
+      <div class="block_txt" id="fit_txt">
+        <div>
+          <h2 id="fit_title">Screen Time</h2>
+        </div>
+        <div class="content">
+          <div>
+            <h3>Your Condition: very good.</h3>
+            <br>
+            <p class="advice">You are done with exercise for today!</p>
+          </div>
+          <br>
+          <br>
+          <div>
+
+
+            <form action="" method="POST">
+              <p>Enter data for today: </p>
+              <input type="number" id="step_input" name="step_input" value="{{
+                request.form.step_input }}">
+              <input type="submit" value="submit">
+              <p>You just entered: <span id="step_entered"></span> steps</hp>
+                <script>
+                  function writeval() {
+                    document.getElementById("step_entered").innerHTML = document.getElementById("step_input").value;
+                    document.getElementById("step_input").value = "";
+                  }
+                </script>
+            </form>
+
+
+          </div>
+        </div>
+
+        <div>
+
+        </div>
+      </div>
+      <canvas class="chart" id="screen_chart" style="width:100%;height:100%; max-width:500px;max-height:350px"></canvas>
+      <!-- changing the array? -->
+      <script>
+        var xValues = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+        var yValues = [55, 49, 44, 24, 15, 20, 0];
+        var barColors = ["blue"];
+
+        new Chart("screen_chart", {
+          type: "bar",
+          data: {
+            labels: xValues,
+            datasets: [{
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(255, 159, 64, 0.5)',
+                'rgba(255, 205, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(150, 150, 207, 0.5)'
+              ],
+              data: yValues
+            }]
+          },
+          options: {
+            legend: { display: false },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }],
+            }
+          }
+        });
+      </script>
+    </div>
+  </div>
+  <div class="block" id="hyd_div">
+    <div class="block_txt" id="fit_txt">
       <div>
-        <h2>Screen Time</h2>
+        <h2 id="fit_title">Hydration</h2>
+      </div>
+      <div class="content">
+        <div>
+          <h3>Your Condition: very good.</h3>
+          <br>
+          <p class="advice">You are done with exercise for today!</p>
+        </div>
+        <br>
+        <br>
+        <div>
+
+
+          <form action="" method="POST">
+            <p>Enter data for today: </p>
+            <input type="number" id="step_input" name="step_input" value="{{
+              request.form.step_input }}">
+            <input type="submit" value="submit">
+            <p>You just entered: <span id="step_entered"></span> steps</hp>
+              <script>
+                function writeval() {
+                  document.getElementById("step_entered").innerHTML = document.getElementById("step_input").value;
+                  document.getElementById("step_input").value = "";
+                }
+              </script>
+          </form>
+
+
+        </div>
+      </div>
+
+      <div>
+
       </div>
     </div>
-    <div class="block" id="hyd_div">
+    <canvas class="chart" id="hyd_chart" style="width:100%;height:100%; max-width:500px;max-height:350px"></canvas>
+    <!-- changing the array? -->
+    <script>
+      var xValues = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+      var yValues = [15, 49, 44, 64, 15, 50, 0];
+      var barColors = ["blue"];
+
+      new Chart("hyd_chart", {
+        type: "bar",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.5)',
+              'rgba(255, 159, 64, 0.5)',
+              'rgba(255, 205, 86, 0.5)',
+              'rgba(75, 192, 192, 0.5)',
+              'rgba(54, 162, 235, 0.5)',
+              'rgba(153, 102, 255, 0.5)',
+              'rgba(150, 150, 207, 0.5)'
+            ],
+            data: yValues
+          }]
+        },
+        options: {
+          legend: { display: false },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }],
+          }
+        }
+      });
+    </script>
+  </div>
+  <div class="block" id="med_div">
+    <div class="block_txt" id="fit_txt">
       <div>
-        <h2>Hydration</h2>
+        <h2 id="fit_title">Medication</h2>
+      </div>
+      <div class="content">
+        <div>
+          <h3>Your Condition: very good.</h3>
+          <br>
+          <p class="advice">You are done with exercise for today!</p>
+        </div>
+        <br>
+        <br>
+        <div>
+
+
+          <form action="" method="POST">
+            <p>Enter data for today: </p>
+            <input type="number" id="step_input" name="step_input" value="{{
+              request.form.step_input }}">
+            <input type="submit" value="submit">
+            <p>You just entered: <span id="step_entered"></span> steps</hp>
+              <script>
+                function writeval() {
+                  document.getElementById("step_entered").innerHTML = document.getElementById("step_input").value;
+                  document.getElementById("step_input").value = "";
+                }
+              </script>
+          </form>
+
+
+        </div>
+      </div>
+
+      <div>
+
       </div>
     </div>
-    <div class="block" id="med_div">
-      <div>
-        <h2>Medication</h2>
-      </div>
-    </div>
+    <canvas class="chart" id="med_chart" style="width:100%;height:100%; max-width:500px;max-height:350px"></canvas>
+    <!-- changing the array? -->
+    <script>
+      var xValues = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+      var yValues = [55, 49, 44, 24, 15, 20, 0];
+      var barColors = ["blue"];
+
+      new Chart("med_chart", {
+        type: "bar",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.5)',
+              'rgba(255, 159, 64, 0.5)',
+              'rgba(255, 205, 86, 0.5)',
+              'rgba(75, 192, 192, 0.5)',
+              'rgba(54, 162, 235, 0.5)',
+              'rgba(153, 102, 255, 0.5)',
+              'rgba(150, 150, 207, 0.5)'
+            ],
+            data: yValues
+          }]
+        },
+        options: {
+          legend: { display: false },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }],
+          }
+        }
+      });
+    </script>
+  </div>
   </div>
   <!-- Fixed Header Block -->
 

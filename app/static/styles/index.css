@@ -89,7 +89,7 @@ h1{
   font-family:cursive, Times, serif;
   font-size: 80px;
   font-weight:bolder;
-  color:rgb(43, 83, 70);
+  color:#19647E;
 }
 
 #head_div{
@@ -110,11 +110,11 @@ h1{
 }
 
 #data_b{
-  background-color:#5e98be;
+  background-color:#60a9da;
 }
 
 #group_b{
-  background-color:#9f6aca;
+  background-color:#e7ee85;
 }
 
 .opt_b{
@@ -158,7 +158,7 @@ h1{
 
 /* map and data block */
 #data_div{
-  background-color: #81a079;
+  background-color: #81b7d6;
 }
 
 #left_b_div{
@@ -231,7 +231,6 @@ h1{
   z-index:2;
   position: relative;
   bottom: -70px;
-  right: 40%;
 }
 
 #map_panel{
@@ -289,13 +288,9 @@ h1{
     justify-content:center;
     font-size:30px;
 }
-.grid_b:hover{
-
-}
 
 
-
-#fit_chart{
+.chart{
   position:absolute;
   right: 40px;
   top:80px;
@@ -319,7 +314,7 @@ h3{
 }
 
 #fit_div{
-  background-color: #7b68ce;
+  background-color: #7d6eaf;
   color:white;
 }
 
@@ -339,26 +334,13 @@ h3{
 }
 
 #screen_div{
-  background-color: #ca7fab;
+  background-color: #ffc857;
 }
 
 #hyd_div{
-  background-color: #8ad8f0;
+  background-color: #ffc857;
 }
 
 #med_div{
-  background-color: #e6d576;
-}
-
-
-/* Chat */
-.sidebar{
-  background-color: #b4cedf;
-  display: flex;
-  flex-direction: column;
-}
-
-.contact_item{
-  padding:20px;
-  background-color: #8ad8f0;
+  background-color: #92b5ab;
 }

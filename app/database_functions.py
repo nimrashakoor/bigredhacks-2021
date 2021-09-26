@@ -1,5 +1,6 @@
 import pandas as pd
-import io, json
+import io
+import json
 
 
 def createEmptyDataframe():
@@ -17,11 +18,13 @@ def createSampleDataframe():
     sample = {
         "Username": "Johnny",
         "Friends": ["Sarah", "Timmy", "Tobby"],
-        "Points": 23,
+        "Points": 80,
     }
 
-    sample2 = {"Username": "Timmy", "Friends": ["Johnny", "Sarah"], "Points": 12}
-    sample3 = {"Username": "Sarah", "Friends": ["Timmy", "Tobby"], "Points": 15}
+    sample2 = {"Username": "Timmy", "Friends": [
+        "Johnny", "Sarah"], "Points": 12}
+    sample3 = {"Username": "Sarah", "Friends": [
+        "Timmy", "Tobby"], "Points": 15}
     sample4 = {"Username": "Tobby", "Friends": ["Johnny"], "Points": 41}
 
     df = df.append(sample, ignore_index=True)
