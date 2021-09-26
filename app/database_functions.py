@@ -1,4 +1,5 @@
 import pandas as pd
+import io, json
 
 
 def createEmptyDataframe():
@@ -6,7 +7,7 @@ def createEmptyDataframe():
     df = pd.DataFrame({"Username": [], "Friends": [], "Points": []})
     return df
 
-
+# DO NOT USE BELOW FUNCTION, deprecated
 def createSampleDataframe():
     """creates the sample dataframe
     :df: Pandas dataframe
@@ -19,9 +20,7 @@ def createSampleDataframe():
     }
 
     sample2 = {"Username": "Timmy", "Friends": ["Johnny", "Sarah"], "Points": 12}
-
     sample3 = {"Username": "Sarah", "Friends": ["Timmy", "Tobby"], "Points": 15}
-
     sample4 = {"Username": "Tobby", "Friends": ["Johnny"], "Points": 41}
 
     df = df.append(sample, ignore_index=True)
@@ -81,11 +80,14 @@ def addFriend(username, friend, df):
   :df: Pandas dataframe
   """
   if checkUser(friend, df):
-    idx = df.index[df["Username"] == username][0]
-    df.iat[idx,1].append(friend)
-    idx = df.index[df["Username"] == friend][0]
-    df.iat[idx,1].append(username)
-    return df
+    if getUserFriends(username, df).count(friend) == 0:
+      idx = df.index[df["Username"] == username][0]
+      df.iat[idx,1].append(friend)
+      idx = df.index[df["Username"] == friend][0]
+      df.iat[idx,1].append(username)
+      return df
+    else:
+      return None
   else:
     return None
 
@@ -100,3 +102,21 @@ def checkUser(username, df):
     return True
   else:
     return False
+
+def saveJSON(df):
+  """Updates the JSON to store database of user information as data.txt
+  :df dataframe being stored
+  """
+  data = df.to_json(orient='records')
+  with io.open('data.txt', 'w', encoding='utf-8') as f:
+    f.write(json.dumps(data, ensure_ascii=False))
+    
+ def readJSON():
+  """Returns the JSON file storing the database as a dataframe
+  """
+  # Opening JSON file
+  f = open('data.txt',)
+  data = json.load(f)
+  f.close()
+  df = pd.read_json(data)
+  return df
