@@ -81,38 +81,45 @@
           <div class="scroll_wrapper">
             <div id="map_panel">
               <!-- Inset steps remaining (calculated from points)-->
-              <p id="go_title">Steps remaining:<span id="numstep"></span></p>
+              <p id="go_title">Steps remaining:<span id="numstep">5</span></p>
               <button id="go_b" class="normal_b" onclick="go()">Go</button>
               <script>
                 function go() {
-                  var textcont = document.getElementById(numstep).textContent;
+                  var y = document.getElementById(avatar_pic_me);
+                  y.style.bottom = "0px";
+                  //var me = document.getElementById(avatar_pic_me);
+                  //me.style.right = "100px";
+                  //me.setAttribute("right", "100px");
+                  //me.setAttribute("top", "300px");
 
+                  document.getElementById("numstep").innerHTML = "0";
                 }
               </script>
             </div>
             <div class="scene" style="display:inline-flex">
               <img class="scene_img" src="static/img/stage1.jpg" width="800px" height="410px">
               <div id="avatar_div">
-                <img src="static/img/avatar.gif" width="140px" height="140px" id="avatar_pic" ]>
-                <img src="static/img/avatar.gif" width="140px" height="140px" id="avatar_pic1" ]>
+                <img src="static/img/avatar.gif" width="140px" height="140px" class="avatar_pic" id="avatar_pic_me">
               </div>
             </div>
             <div class="scene" style="display:inline-flex">
               <img class="scene_img" src="static/img/stage2.jpg" width="800px" height="410px">
-              <div id="avatar_div" style="display:none">
-                <img src="static/img/avatar.gif" width="140px" height="140px" id="avatar_pic">
+              <div id="avatar_div">
+                <img src="static/img/timmy.gif" width="140px" height="140px" class="avatar_pic"
+                  style="right:-200px;top:200px">
               </div>
             </div>
-            <div class="scene" style="display:none">
+            <div class="scene" style="display:inline-flex">
               <img class="scene_img" src="static/img/stage3.jpg" width="800px" height="410px">
               <div id="avatar_div">
-                <img src="static/img/avatar.gif" width="140px" height="140px" id="avatar_pic">
+                <img src="static/img/sarah.gif" width="140px" height="140px" class="avatar_pic"
+                  style="right:140px;top:30px">
               </div>
             </div>
             <div class="scene" style="display:none">
               <img class="scene_img" src="static/img/stage4.jpg" width="800px" height="410px">
               <div id="avatar_div">
-                <img src="static/img/avatar.gif" width="140px" height="140px" id="avatar_pic">
+                <img src="static/img/avatar.gif" width="140px" height="140px" class="avatar_pic">
               </div>
             </div>
             <div class="scene">
@@ -169,7 +176,7 @@
       }
       function replace(num) {
         pages = ["map", "numbers", "notifications"];
-        colors = ["#92b587", "pink", "lightblue"]
+        colors = ["#60a9da", "pink", "#ea8c50"]
         if (document.getElementById("map").style.display == "block") {
           current = 0;
           document.getElementById("map").style.display = "none";

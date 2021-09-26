@@ -18,13 +18,13 @@ def createSampleDataframe():
     sample = {
         "Username": "Johnny",
         "Friends": ["Sarah", "Timmy", "Tobby"],
-        "Points": 80,
+        "Points": 85,
     }
 
     sample2 = {"Username": "Timmy", "Friends": [
-        "Johnny", "Sarah"], "Points": 12}
+        "Johnny", "Sarah"], "Points": 222}
     sample3 = {"Username": "Sarah", "Friends": [
-        "Timmy", "Tobby"], "Points": 15}
+        "Timmy", "Tobby"], "Points": 165}
     sample4 = {"Username": "Tobby", "Friends": ["Johnny"], "Points": 41}
 
     df = df.append(sample, ignore_index=True)
